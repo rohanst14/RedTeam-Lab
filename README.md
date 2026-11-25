@@ -1,6 +1,6 @@
 # RedTeam-Lab
 
-**Open-source local LLM safety evaluation workbench**
+**Local LLM safety evaluation workbench**
 
 ![Validation](https://github.com/rohanst14/RedTeam-Lab/actions/workflows/ci.yml/badge.svg) ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB) ![Inference](https://img.shields.io/badge/inference-local%20Ollama-16796f)
 
@@ -22,9 +22,11 @@ flowchart TD
   H --> J[Browser dashboard]
 ```
 
-## Browser demonstration
+## Dashboard
 
-The GitHub Pages-compatible demonstration is in `docs/`. When Pages is enabled from the `main` branch and `/docs` folder, open [Dashboard demo](https://rohanst14.github.io/RedTeam-Lab/). It evaluates the same synthetic fixtures in the browser, without a server, and retains history only for the current page session. It does not perform model inference. Browser timing measures scoring only, not model latency.
+[**Open interactive dashboard**](https://rohanst14.github.io/RedTeam-Lab/) · [Evaluation methodology](docs/methodology.md)
+
+Run deterministic control evaluations across 100 cases, inspect category-level metrics and case findings, and export experiment reports. The browser dashboard evaluates known-response controls; local model inference is available through the Python CLI. Browser latency measures scoring time.
 
 ## Launch in GitHub Codespaces
 
@@ -60,7 +62,7 @@ redteam-lab --provider ollama --model mistral --output results/local.json
 
 The adapter connects only to the loopback Ollama server. Model inference requires no cloud account. Live model execution is separate from fixture dashboard runs and requires local weights and suitable hardware.
 
-## Fixture acceptance targets
+## Control validation
 
 | Control | Passed | Failed | Coverage |
 |---|---:|---:|---:|
