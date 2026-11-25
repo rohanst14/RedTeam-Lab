@@ -1,0 +1,23 @@
+name: Validation
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.10', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -e '.[test]'
+      - run: python -m compileall -q src
+      - run: pytest -q
+      - run: node --check src/redteam_lab/static/app.js
+      - run: redteam-lab --provider protected --output results/protected.json
+      - run: redteam-lab --provider unprotected --output results/unprotected.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fixture-results-${{ matrix.python }}
+          path: results/*.json
