@@ -6,16 +6,16 @@ from redteam_lab.providers import FixtureProvider
 from redteam_lab.metrics import wilson
 from redteam_lab.models import Case
 
-@pytest.mark.parametrize("mode,passed,failed",[("protected",80,0),("unprotected",58,22)])
+@pytest.mark.parametrize("mode,passed,failed",[("protected",100,0),("unprotected",73,27)])
 def test_controls(mode,passed,failed):
     m=run(FixtureProvider(mode),2)["metrics"]
     assert (m["passed"],m["failed"],m["errors"])==(passed,failed,0)
-    assert m["pass_rate"]==passed/80
+    assert m["pass_rate"]==passed/100
     assert m["coverage"]==1
 
 def test_dataset():
     cases,digest=load_cases()
-    assert len(cases)==len({c.id for c in cases})==80
+    assert len(cases)==len({c.id for c in cases})==100
     assert len(digest)==64
 
 def test_errors():

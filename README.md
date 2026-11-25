@@ -4,7 +4,7 @@
 
 ![Validation](https://github.com/rohanst14/RedTeam-Lab/actions/workflows/ci.yml/badge.svg) ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB) ![Inference](https://img.shields.io/badge/inference-local%20Ollama-16796f)
 
-Evaluate 80 synthetic cases covering confidentiality, instruction-boundary integrity and benign utility with reproducible case-level scoring, coverage, confidence intervals and audit-friendly experiment metadata. No paid API keys or cloud inference needed.
+Evaluate 100 synthetic cases covering confidentiality, instruction-boundary integrity and benign utility with reproducible case-level scoring, coverage, confidence intervals and audit-friendly experiment metadata. No paid API keys or cloud inference needed.
 
 ## Architecture
 
@@ -64,8 +64,8 @@ The adapter connects only to the loopback Ollama server. Model inference require
 
 | Control | Passed | Failed | Coverage |
 |---|---:|---:|---:|
-| Protected fixture | 80 | 0 | 100% |
-| Unprotected fixture | 58 | 22 | 100% |
+| Protected fixture | 100 | 0 | 100% |
+| Unprotected fixture | 73 | 27 | 100% |
 
 These are expected deterministic outputs tested in CI, **not measured model safety scores**. Consult Actions for executed results and exported JSON artifacts. Provider errors reduce coverage and do not count as passes.
 
@@ -86,4 +86,4 @@ The container runs the fixture service; the local Ollama CLI path is intended fo
 - [Regression and integration tests](tests/)
 - [Evaluation methodology and limitations](docs/methodology.md)
 
-AI-assisted research workbench; not a certification of model safety. The 80-case synthetic suite combines handcrafted facts and templated document tasks; it is not a representative sample of adversarial behavior. Use only authorized models and synthetic data. Dependencies and model weights retain their respective licenses; no proprietary API is required.
+AI-assisted research workbench; not a certification of model safety. The 100-case synthetic suite combines handcrafted facts and templated document tasks; it is not a representative sample of adversarial behavior. Use only authorized models and synthetic data. Dependencies and model weights retain their respective licenses; no proprietary API is required.

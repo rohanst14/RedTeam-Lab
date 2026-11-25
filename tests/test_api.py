@@ -13,7 +13,7 @@ def test_persistence(tmp_path):
         r=c.post("/api/runs",json={"mode":"unprotected"})
         assert r.status_code==201
         report=r.json()
-        assert report["metrics"]["failed"]==22
+        assert report["metrics"]["failed"]==27
         assert c.post("/api/runs",json={"mode":"invalid"}).status_code==422
         assert c.get("/api/runs/missing").status_code==404
     with TestClient(create_app(path)) as c:
