@@ -1,0 +1,16 @@
+{
+  "name": "RedTeam-Lab",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+  "postCreateCommand": "python -m pip install -e '.[test,local]' && python -m pytest -q",
+  "forwardPorts": [
+    8000
+  ],
+  "portsAttributes": {
+    "8000": {
+      "label": "RedTeam-Lab dashboard",
+      "onAutoForward": "openBrowser",
+      "visibility": "private"
+    }
+  },
+  "postStartCommand": "mkdir -p /tmp/redteam-lab && (nohup python -m uvicorn redteam_lab.api:app --host 0.0.0.0 --port 8000 > /tmp/redteam-lab/server.log 2>&1 < /dev/null &)"
+}

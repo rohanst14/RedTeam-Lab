@@ -26,6 +26,12 @@ flowchart TD
 
 The GitHub Pages-compatible demonstration is in `docs/`. When Pages is enabled from the `main` branch and `/docs` folder, open [Dashboard demo](https://rohanst14.github.io/RedTeam-Lab/). It evaluates the same synthetic fixtures in the browser, without a server, and retains history only for the current page session. It does not perform model inference. Browser timing measures scoring only, not model latency.
 
+## Launch in GitHub Codespaces
+
+[Open RedTeam-Lab in Codespaces](https://codespaces.new/rohanst14/RedTeam-Lab?quickstart=1)
+
+The development container installs Python 3.12 and project dependencies, runs the test suite, and starts the FastAPI dashboard on forwarded port 8000. Create a codespace and open port 8000 from the Ports tab if it does not open automatically. Keep the port private. GitHub Codespaces usage limits or charges may apply. Ollama and model weights require separate installation for live inference; the dashboard uses deterministic fixtures.
+
 ## Quick start
 
 ```bash
