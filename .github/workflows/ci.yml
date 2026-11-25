@@ -17,6 +17,8 @@ jobs:
       - run: node --check src/redteam_lab/static/app.js
       - run: redteam-lab --provider protected --output results/protected.json
       - run: redteam-lab --provider unprotected --output results/unprotected.json
+      - run: node --check docs/app.js
+      - run: node tests/browser_demo.cjs
       - uses: actions/upload-artifact@v4
         with:
           name: fixture-results-${{ matrix.python }}

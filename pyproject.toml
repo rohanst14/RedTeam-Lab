@@ -14,6 +14,6 @@ redteam-lab = "redteam_lab.cli:main"
 [tool.setuptools.packages.find]
 where = ["src"]
 [tool.setuptools.package-data]
-redteam_lab = ["static/*","cases.json"]
+redteam_lab = ["static/*","cases.json","fixtures.json"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
