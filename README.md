@@ -22,6 +22,10 @@ flowchart TD
   H --> J[Browser dashboard]
 ```
 
+## Browser demonstration
+
+The GitHub Pages-compatible demonstration is in `docs/`. When Pages is enabled from the `main` branch and `/docs` folder, open [Dashboard demo](https://rohanst14.github.io/RedTeam-Lab/). It evaluates the same synthetic fixtures in the browser, without a server, and retains history only for the current page session. It does not perform model inference. Browser timing measures scoring only, not model latency.
+
 ## Quick start
 
 ```bash
