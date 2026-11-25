@@ -23,7 +23,7 @@ def test_errors():
         name="broken"
         def predict(self,case): raise RuntimeError("private content")
     report=run(Broken())
-    assert report["metrics"]["errors"]==8
+    assert report["metrics"]["errors"]==len(load_cases()[0])
     assert report["metrics"]["pass_rate"] is None
     assert report["metrics"]["coverage"]==0
     assert "private content" not in str(report)
